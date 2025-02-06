@@ -30,20 +30,23 @@ export default function BackgroundAudio() {
 
             <div className="flex flex-row justify-between w-full items-center">
                 <span className="text-outline">Now Playing</span>
+
                 <button
                     onClick={toggleMute}
-                    className="px-3 py-1 bg-red-500 rounded"
+                    className="ml-5 px-3 py-1 bg-red-500 rounded"
                 >
                     {isMuted ? "Unmute" : "Mute"}
                 </button>
             </div>
 
-            <div className="flex flex-row gap-x-4 items-center">
-                <Image className="rounded-md" src="/icons/nowplaying.jpg" alt="Cigarettes After Sex" height={50} width={50} />
+            <div className="w-full flex flex-row justify-between items-center">
+                <div className="flex flex-row gap-x-4 items-center">
+                    <Image className="rounded-md" src="/icons/nowplaying.jpg" alt="Cigarettes After Sex" height={50} width={50} />
 
-                <div className="flex flex-col justify-center items-start gap-y-1">
-                    <h1 className="text-md">Falling In Love</h1>
-                    <span className="text-xs brightness-[90%]">Cigarettes After Sex</span>
+                    <div className="flex flex-col justify-center items-start gap-y-1">
+                        <h1 className="text-md">blue</h1>
+                        <span className="text-xs brightness-[90%]">yung kai</span>
+                    </div>
                 </div>
 
                 <button

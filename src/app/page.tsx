@@ -1,3 +1,4 @@
+import Screen from "@app/components/Screen";
 import StartButton from "@app/components/StartButton";
 import Image from "next/image";
 
@@ -45,31 +46,35 @@ export default function Home() {
                     </div>
 
                     {/*Screen 1*/}
-                    <form className="bg-gray-400 border-black border-4 rounded-md hidden opacity-0 flex-col justify-evenly items-center text-center w-full p-10 gap-y-10" id="screen-1">
-                        <h1 className="text-xl">Q1. Who&apos;s the finest shyt?</h1>
+                    <Screen id="screen-1" popupId="">
+                        <h1 className="text-xl text-outline w-full">Q1. Who&apos;s the finest shyt?</h1>
 
-                        <div className="flex flex-row">
-                        <span>
-                            <input type="checkbox" />
-                            You
-                        </span>
+                        <div className="flex flex-row flex-wrap md:gap-5 justify-center items-center">
+                            <div className="w-full md:w-1/2 flex gap-x-10 flex-col md:flex-row">
+                                <span>
+                                    <input className="mr-2" type="checkbox" required />
+                                    A. You
+                                </span>
 
-                        <span>
-                            <input type="checkbox" />
-                            You
-                        </span>
+                                <span>
+                                    <input className="mr-2" type="checkbox" required />
+                                    B. You
+                                </span>
+                            </div>
 
-                        <span>
-                            <input type="checkbox" />
-                            You
-                        </span>
+                            <div className="w-full md:w-1/2 flex gap-x-10 flex-col md:flex-row">
+                                <span>
+                                    <input className="mr-2" type="checkbox" required />
+                                    C. You
+                                </span>
 
-                        <span>
-                            <input type="checkbox" />
-                            You
-                        </span>
+                                <span>
+                                    <input className="mr-2" type="checkbox" required />
+                                    D. You
+                                </span>
+                            </div>
                         </div>
-                    </form>
+                    </Screen>
                 </div>
 
                 {/* Display Scrollbar */}
@@ -84,7 +89,7 @@ export default function Home() {
                                 priority
                             />
                         </div>
-                        <div className="h-44 w-full flex flex-col bg-pink-300 border-black border-b-4">
+                        <div className="h-64 md:h-44 w-full flex flex-col bg-pink-300 border-black border-b-4">
                             <div className="bg-pink-400 border-black border-y-4 border-x-2 rounded-b-md h-2/5 w-full"></div>
                             <div className="h-3/5 w-full"></div>
                         </div>
@@ -101,7 +106,7 @@ export default function Home() {
                 </div>
             </div>
         </div>
-        
+
         // <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
         //     <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         //         <Image

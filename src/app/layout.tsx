@@ -5,7 +5,7 @@ import "./globals.css";
 import "../styles/animations.css"
 
 export const metadata: Metadata = {
-    title: "Happy Valentines!",
+    title: "happy valentines fine shyt",
     description: "Yipeee",
 };
 
