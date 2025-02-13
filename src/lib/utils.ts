@@ -9,6 +9,6 @@ export function introduceNextSlide(oldId: string, newId: string) {
             oldScreen.style.display = "none";
             newScreen.style.display = "flex";
             newScreen.classList.add("fade-in");
-        }, 3000);
+        }, 1000);
     }
 }

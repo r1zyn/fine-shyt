@@ -1,8 +1,25 @@
+"use client";
+
+import Popup from "@app/components/Popup";
 import Screen from "@app/components/Screen";
 import StartButton from "@app/components/StartButton";
 import Image from "next/image";
+import { useRef, useState } from "react";
 
 export default function Home() {
+    const [value, setValue] = useState(0);
+    const [like, setLike] = useState(0);
+    const [hasValentines, setValentines] = useState("no");
+    const [hearts, setHearts] = useState(0);
+    const [hasChance, setChance] = useState("yes");
+
+    const heartsRef = useRef(0);
+
+    const addHearts = () => {
+        heartsRef.current += 50;
+        setHearts(heartsRef.current);
+    };
+
     return (
         <div className="mx-10 md:mx-0 bg-pink-300 border-black border-4 rounded-2xl flex flex-col justify-center items-center shadow-2xl animate">
             {/* Top Bar */}
@@ -45,36 +62,298 @@ export default function Home() {
                         <StartButton />
                     </div>
 
-                    {/*Screen 1*/}
-                    <Screen id="screen-1" popupId="">
-                        <h1 className="text-xl text-outline w-full">Q1. Who&apos;s the finest shyt?</h1>
+                    <Popup id="popup-0">
+                        <div className="w-52">hi chat i made this specifically for this day if u havent figured and js keep going ull figure what this is out ltr yezz</div>
+                    </Popup>
 
-                        <div className="flex flex-row flex-wrap md:gap-5 justify-center items-center">
-                            <div className="w-full md:w-1/2 flex gap-x-10 flex-col md:flex-row">
-                                <span>
-                                    <input className="mr-2" type="checkbox" required />
-                                    A. You
-                                </span>
+                    {/* Section 1*/}
+                    <>
+                        {/*Screen 1*/}
+                        <Screen id="screen-1">
+                            <h1 className="text-xl text-outline w-full">Q1. whos the finest shyt</h1>
 
-                                <span>
-                                    <input className="mr-2" type="checkbox" required />
-                                    B. You
+                            <div className="flex flex-row flex-wrap md:gap-5 justify-center items-center">
+                                <div className="w-full md:w-1/2 flex gap-x-10 flex-col md:flex-row">
+                                    <div>
+                                        <input className="mr-2" type="checkbox" required onInput={() => addHearts()} />
+                                        A. You
+                                    </div>
+
+                                    <div>
+                                        <input className="mr-2" type="checkbox" required />
+                                        B. You
+                                    </div>
+                                </div>
+
+                                <div className="w-full md:w-1/2 flex gap-x-10 flex-col md:flex-row">
+                                    <div>
+                                        <input className="mr-2" type="checkbox" required />
+                                        C. You
+                                    </div>
+
+                                    <div>
+                                        <input className="mr-2" type="checkbox" required />
+                                        D. You
+                                    </div>
+                                </div>
+                            </div>
+                        </Screen>
+
+                        <Popup id="popup-1">
+                            <div className="flex flex-col items-center gap-y-2">
+                                you got it right!!!!
+                                <Image className="cursor-pointer transform duration-500 ease-in-out hover:scale-110" src="/icons/milo.png" alt="Iced Milo" height={90} width={90} />
+                                here&apos;s sum milo
+                                <span className="text-xs text-pink-300 flex flex-row items-center">
+                                    <Image src="/favicon.ico" alt="hearts" height={20} width={20} />
+                                    +50 hearts
                                 </span>
                             </div>
+                        </Popup>
+                    </>
 
-                            <div className="w-full md:w-1/2 flex gap-x-10 flex-col md:flex-row">
-                                <span>
-                                    <input className="mr-2" type="checkbox" required />
-                                    C. You
-                                </span>
+                    {/* Section 2*/}
+                    <>
+                        {/*Screen 2*/}
+                        <Screen id="screen-2">
+                            <h1 className="text-xl text-outline w-full">Q2. why do i like u</h1>
 
-                                <span>
-                                    <input className="mr-2" type="checkbox" required />
-                                    D. You
+                            <div className="flex flex-row flex-wrap md:gap-5 justify-center items-center w-min">
+                                <div className="w-full md:w-1/2 flex gap-x-10 flex-col md:flex-row justify-center items-center">
+                                    <span>
+                                        <input className="mr-2" type="checkbox" required onInput={() => addHearts()} />
+                                        <span>ur funny</span>
+                                    </span>
+
+                                    <span>
+                                        <input className="mr-2" type="checkbox" required />
+                                        <span>ur pretty</span>
+                                    </span>
+                                </div>
+
+                                <div className="w-full md:w-1/2 flex gap-x-10 flex-col md:flex-row justify-center items-center">
+                                    <span>
+                                        <input className="mr-2" type="checkbox" required />
+                                        <span>ur cute</span>
+                                    </span>
+
+                                    <span>
+                                        <input className="mr-2" type="checkbox" required />
+                                        <span>ur amazing at everything</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </Screen>
+
+                        <Popup id="popup-2">
+                            <div className="flex flex-col items-center gap-y-2">
+                                glad u know!!!
+                                <Image className="cursor-pointer transform duration-500 ease-in-out hover:scale-110" src="/icons/volleyball.png" alt="Volleyball" height={90} width={90} />
+                                u like volleyball yes
+                                <span className="text-xs text-pink-300 flex flex-row items-center">
+                                    <Image src="/favicon.ico" alt="hearts" height={20} width={20} />
+                                    +50 hearts
                                 </span>
                             </div>
-                        </div>
-                    </Screen>
+                        </Popup>
+                    </>
+
+                    {/* Section 3*/}
+                    <>
+                        {/*Screen 3*/}
+                        <Screen id="screen-3">
+                            <h1 className="text-xl text-outline w-full">Q3. how much do u think i like u</h1>
+
+                            <div className="flex flex-row items-center gap-x-3">
+                                not at all
+                                <input type="range" defaultValue={0} min={0} max={100} className="slider" onInput={(e) => {
+                                    const val = parseInt(e.currentTarget.value);
+                                    setValue(val);
+
+                                    if (val == 100) addHearts();
+                                }} />
+                                sosososo much
+                            </div>
+                        </Screen>
+
+                        <Popup id="popup-3">
+                            {value == 100 ? <div className="flex flex-col items-center gap-y-2">
+                                woah u guessed it
+                                <Image src="/happi.gif" alt="happi cat" height={90} width={90} />
+                                i is happy now!!
+                                <span className="text-xs text-pink-300 flex flex-row items-center">
+                                    <Image src="/favicon.ico" alt="hearts" height={20} width={20} />
+                                    +50 hearts
+                                </span>
+                            </div> : <div className="flex flex-col items-center gap-y-2">
+                                why didnt u max the slider {":(("}
+                                <Image src="/cri.gif" alt="cri cat" height={90} width={90} />
+                                i is sad now
+                                <span className="text-xs text-pink-300 flex flex-row items-center">
+                                    <Image src="/favicon.ico" alt="hearts" height={20} width={20} />
+                                    +0 hearts
+                                </span>
+                            </div>}
+                        </Popup>
+                    </>
+
+                    {/* Section 4*/}
+                    <>
+                        {/*Screen 4*/}
+                        <Screen id="screen-4">
+                            <h1 className="text-xl text-outline w-full">Q3. how much is u like me</h1>
+
+                            <div className="flex flex-row items-center gap-x-3">
+                                not at all
+                                <input type="range" defaultValue={0} min={0} max={100} className="slider" onInput={(e) => {
+                                    const val = parseInt(e.currentTarget.value);
+                                    setLike(val);
+
+                                    if (val == 100) addHearts();
+                                }} />
+                                sosososo much
+                            </div>
+                        </Screen>
+
+                        <Popup id="popup-4">
+                            {like == 100 ? <div className="flex flex-col items-center gap-y-2">
+                                WOWOWOW U LIKE ME!!!
+                                <Image src="/happi.gif" alt="happi cat" height={90} width={90} />
+                                yipeeeeee
+                                <span className="text-xs text-pink-300 flex flex-row items-center">
+                                    <Image src="/favicon.ico" alt="hearts" height={20} width={20} />
+                                    +50 hearts
+                                </span>
+                            </div> : <div className="flex flex-col items-center gap-y-2">
+                                oh {":(("}
+                                <Image src="/cri.gif" alt="cri cat" height={90} width={90} />
+                                maybe u is close this now
+                                <span className="text-xs text-pink-300 flex flex-row items-center">
+                                    <Image src="/favicon.ico" alt="hearts" height={20} width={20} />
+                                    +0 hearts
+                                </span>
+                            </div>}
+                        </Popup>
+                    </>
+
+                    {/* Section 5*/}
+                    <>
+                        {/*Screen 5*/}
+                        <Screen id="screen-5" oneOption>
+                            <h1 className="text-xl text-outline w-full">Q5. is u have valentines alr</h1>
+
+                            <div className="flex flex-row flex-wrap md:gap-5 justify-center items-center w-min">
+                                <div className="w-full md:w-1/2 flex gap-x-10 flex-col md:flex-row justify-center items-center">
+                                    <span>
+                                        <input className="mr-2" type="checkbox" onInput={() => setValentines("yes")} />
+                                        <span>yes</span>
+                                    </span>
+
+                                    <span>
+                                        <input className="mr-2" type="checkbox" onInput={() => {
+                                            setValentines("no");
+                                            addHearts();
+                                        }} />
+                                        <span>no</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </Screen>
+
+                        <Popup id="popup-5">
+                            {hasValentines == "yes" ? <div className="flex flex-col items-center gap-y-2">
+                                oh noesssss
+                                <Image src="/cri.gif" alt="cri cat" height={90} width={90} />
+                                nvm u is close this then...
+                                <span className="text-xs text-pink-300 flex flex-row items-center">
+                                    <Image src="/favicon.ico" alt="hearts" height={20} width={20} />
+                                    +0 hearts
+                                </span>
+                            </div> : <div className="flex flex-col items-center gap-y-2">
+                                yipeeee
+                                <Image src="/happi.gif" alt="happi cat" height={90} width={90} />
+                                maybe i is have chance?
+                                <span className="text-xs text-pink-300 flex flex-row items-center">
+                                    <Image src="/favicon.ico" alt="hearts" height={20} width={20} />
+                                    +50 hearts
+                                </span>
+                            </div>}
+                        </Popup>
+                    </>
+
+                    {/* Section 6*/}
+                    <>
+                        {/*Screen 6*/}
+                        <Screen id="screen-6" oneOption>
+                            <h1 className="text-xl text-outline w-full">Q6. can i b ur valentine?</h1>
+
+                            <div className="flex flex-row flex-wrap md:gap-5 justify-center items-center w-min">
+                                <div className="w-full md:w-1/2 flex gap-x-10 flex-col md:flex-row justify-center items-center">
+                                    <span>
+                                        <input className="mr-2" type="checkbox" onInput={() => {
+                                            setChance("yes");
+                                            addHearts();
+                                        }} />
+                                        <span>yes</span>
+                                    </span>
+
+                                    <span>
+                                        <input className="mr-2" type="checkbox" onInput={() => {
+                                            setChance("no");
+
+                                        }} />
+                                        <span>no</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </Screen>
+
+                        <Popup id="popup-6">
+                            {hasChance == "no" ? <div className="flex flex-col items-center gap-y-2">
+                                WHAT
+                                <Image src="/cri.gif" alt="cri cat" height={90} width={90} />
+                                ur so mean
+                                <span className="text-xs text-pink-300 flex flex-row items-center">
+                                    <Image src="/favicon.ico" alt="hearts" height={20} width={20} />
+                                    +0 hearts
+                                </span>
+                            </div> : <div className="flex flex-col items-center gap-y-2">
+                                WAIT RLLY???
+                                <Image src="/happi.gif" alt="happi cat" height={90} width={90} />
+                                POOKIE ILYSM
+                                <span className="text-xs text-pink-300 flex flex-row items-center">
+                                    <Image src="/favicon.ico" alt="hearts" height={20} width={20} />
+                                    +50 hearts
+                                </span>
+                            </div>}
+                        </Popup>
+                    </>
+
+                    {/* Section 7*/}
+                    <>
+                        {/*Screen 7*/}
+                        <Screen id="screen-7">
+                            <h1 className="text-xl text-outline w-full">Q7. so will u be my gf</h1>
+
+                            <textarea className="w-full text-pink-300" placeholder="is ok if u say no but say wtv u want" required />
+                        </Screen>
+
+                        <Popup id="popup-7">
+                            ur answer has been sent to meee
+
+                            <Image src="/happi.gif" alt="happi cat" height={90} width={90} />
+                        </Popup>
+                    </>
+
+                    {/* Section 8*/}
+                    <>
+                        {/*Screen 8*/}
+                        <Screen id="screen-8" hearts={hearts}>
+                            <h1 className="text-xl text-outline w-full"><span className="flex flex-row items-center gap-x-2">you earned: <Image src="/favicon.ico" alt="hearts" height={40} width={40} /> {hearts} hearts!!!</span></h1>
+                            <p className="text-md w-full">i liek u smsmsmsmsm</p>
+                            <p className="text-md w-full">happy valentines!! 💖</p>
+                        </Screen>
+                    </>
                 </div>
 
                 {/* Display Scrollbar */}

@@ -33,7 +33,7 @@ export default function BackgroundAudio() {
 
                 <button
                     onClick={toggleMute}
-                    className="ml-5 px-3 py-1 bg-red-500 rounded"
+                    className="ml-5 px-3 py-1 bg-red-500 rounded hover:shadow-2xl hover:brightness-75 transform transition-all duration-500 ease-in-out"
                 >
                     {isMuted ? "Unmute" : "Mute"}
                 </button>
@@ -51,7 +51,7 @@ export default function BackgroundAudio() {
 
                 <button
                     onClick={togglePlayPause}
-                    className="rounded-full h-10 w-10 bg-white flex justify-center items-center"
+                    className="rounded-full h-10 w-10 bg-white flex justify-center items-center hover:shadow-2xl hover:brightness-75 transform transition-all duration-500 ease-in-out"
                 >
                     {isPlaying ? <Image src="/icons/pause.svg" alt="pause" height={20} width={20} /> : <Image className="pl-0.5" src="/icons/play.svg" alt="play" height={20} width={20} />}
                 </button>
