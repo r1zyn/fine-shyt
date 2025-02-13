@@ -55,7 +55,7 @@ export default function Home() {
 
             <div className="flex flex-row justify-center items-center w-full h-full">
                 {/* Sreen Content*/}
-                <div className="w-full bg-white flex justify-center items-center h-full p-2 border-black border-r-4 rounded-bl-xl">
+                <div className="w-full text-white bg-white flex justify-center items-center h-full p-2 border-black border-r-4 rounded-bl-xl">
                     {/* Intro Screen*/}
                     <div className="bg-gray-400 border-black border-4 rounded-md flex flex-col justify-evenly items-center text-center w-full p-10 gap-y-10" id="intro-screen">
                         <span className="uppercase text-pink-300 text-outline text-5xl w-full">New Game</span>
